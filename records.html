@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transaction Records</title>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Transaction Records</h1>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="records.html">Records</a>
+      <a href="form.html">Add/Edit</a>
+      <a href="settings.html">Settings</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>All Transactions</h2>
+      <input type="search" id="search" placeholder="Search using regex..." />
+      <div id="search-feedback" role="status" aria-live="polite"></div>
+      <table id="records-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- JS will render records here -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Finance Tracker</p>
+  </footer>
+
+  <script type="module" src="scripts/search.js"></script>
+</body>
+</html>
