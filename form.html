@@ -16,7 +16,7 @@
       <a href="settings.html">Settings</a>
       <a href="about.html">About</a>
     </nav>
-  </header>
+</header>
 
   <main>
     <section>
@@ -29,8 +29,15 @@
         <input type="number" id="amount" name="amount" step="0.01" required />
 
         <label for="category">Category</label>
-        <input type="text" id="category" name="category" required />
-
+        <select id="category" name="category">
+          <option>Food</option>
+          <option>Books</option>
+          <option>Transport</option>
+          <option>Entertainment</option>
+          <option>Fees</option>
+          <option>Other</option>
+        </select>
+        
         <label for="date">Date</label>
         <input type="date" id="date" name="date" required />
 

@@ -6,7 +6,13 @@ body {
   background: #f9f9f9;
   color: #333;
 }
-
+header {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  list-style: none;
+  justify-content: space-between;
+}
 header, footer {
   background: #004080;
   color: white;
@@ -34,4 +40,5 @@ section {
 
 input, select, button {
   display: block;
-  margin: 0.
+  margin: 0.5em 0 1em 0;
+}

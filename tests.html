@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Regex Validation Tests</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2em;
+      background: #f9f9f9;
+    }
+    h1 {
+      color: #004080;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 0.5em;
+    }
+    .pass {
+      color: green;
+      font-weight: bold;
+    }
+    .fail {
+      color: red;
+      font-weight: bold;
+    }
+    code {
+      background: #eee;
+      padding: 0.2em 0.4em;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Regex Validation Tests</h1>
+  <p>This page tests the regex patterns used in your form validation.</p>
+  <ul id="results"></ul>
+
+  <script>
+    const tests = [
+      { field: 'Description (valid)', value: 'Lunch at cafeteria', regex: /^\S(?:.*\S)?$/, expect: true },
+      { field: 'Description (invalid - leading space)', value: '  Lunch', regex: /^\S(?:.*\S)?$/, expect: false },
+      { field: 'Amount (valid)', value: '12.50', regex: /^(0|[1-9]\d*)(\.\d{1,2})?$/, expect: true },
+      { field: 'Amount (invalid - too many decimals)', value: '12.345', regex: /^(0|[1-9]\d*)(\.\d{1,2})?$/, expect: false },
+      { field: 'Date (valid)', value: '2025-09-29', regex: /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/, expect: true },
+      { field: 'Date (invalid - month 13)', value: '2025-13-01', regex: /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/, expect: false },
+      { field: 'Category (valid)', value: 'Transport', regex: /^[A-Za-z]+(?:[ -][A-Za-z]+)*$/, expect: true },
+      { field: 'Category (invalid - numbers)', value: 'Food123', regex: /^[A-Za-z]+(?:[ -][A-Za-z]+)*$/, expect: false },
+      { field: 'Advanced (duplicate word)', value: 'coffee coffee with friends', regex: /\b(\w+)\s+\1\b/, expect: true },
+      { field: 'Advanced (clean)', value: 'coffee with friends', regex: /\b(\w+)\s+\1\b/, expect: false }
+    ];
+
+    const results = document.getElementById('results');
+
+    tests.forEach(({ field, value, regex, expect }) => {
+      const passed = regex.test(value) === expect;
+      const li = document.createElement('li');
+      li.innerHTML = `<code>${field}</code>: "${value}" → <span class="${passed ? 'pass' : 'fail'}">${passed ? 'PASS' : 'FAIL'}</span>`;
+      results.appendChild(li);
+    });
+  </script>
+</body>
+</html>

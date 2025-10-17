@@ -26,3 +26,4 @@ function validate({ description, amount, category, date }) {
   if (/\b(\w+)\s+\1\b/.test(description)) errors.push('Duplicate word in description');
   return errors;
 }
+
